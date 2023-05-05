@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" android:layout_margin="15dp">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp" app:srcCompat="@drawable/padrao" android:id="@+id/ivCapa"
+            android:scaleType="centerCrop"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp" tools:src="@tools:sample/avatars"
+                android:id="@+id/ivCapaCanal" android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+        />
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginStart="4dp">
+            <TextView
+                    android:text="@string/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tvTitulo" android:textStyle="bold"
+                    android:textSize="16sp"/>
+            <TextView
+                    android:text="@string/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/tvDate"/>
+        </LinearLayout>
+    </LinearLayout>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            android:layout_marginTop="10dp"/>
+</LinearLayout>

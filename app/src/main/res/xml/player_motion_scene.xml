@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <Transition
+            motion:constraintSetEnd="@id/collapsed"
+            motion:constraintSetStart="@id/expanded"
+            motion:duration="300"
+            motion:motionInterpolator="easeInOut">
+
+        <OnSwipe
+                motion:dragDirection="dragDown"
+                motion:maxAcceleration="200"
+                motion:touchRegionId="@id/playerBackground"/>
+        <KeyFrameSet>
+
+            <KeyAttribute
+                    android:alpha="1.0"
+                    motion:framePosition="0"
+                    motion:motionTarget="@id/titleChannel"/>
+
+            <KeyAttribute
+                    android:alpha="0.0"
+                    motion:framePosition="70"
+                    motion:motionTarget="@id/titleChannel"/>
+
+            <KeyAttribute
+                    android:alpha="1.0"
+                    motion:framePosition="0"
+                    motion:motionTarget="@id/titleVideo"/>
+
+            <KeyAttribute
+                    android:alpha="0.0"
+                    motion:framePosition="70"
+                    motion:motionTarget="@id/titleVideo"/>
+
+        </KeyFrameSet>
+
+    </Transition>
+    <ConstraintSet android:id="@+id/expanded">
+
+        <Constraint
+                android:id="@id/playerBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toTopOf="parent">
+        </Constraint>
+
+        <Constraint
+                android:id="@+id/titleVideo"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toBottomOf="@+id/youtubeFragment">
+
+        </Constraint>
+
+        <Constraint
+                android:id="@+id/titleChannel"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"
+                motion:layout_constraintTop_toBottomOf="@+id/titleVideo">
+
+        </Constraint>
+
+        <Constraint
+                android:id="@+id/prevImageView"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginEnd="24dp"
+                android:src="@android:drawable/ic_media_previous"
+                motion:layout_constraintBottom_toBottomOf="@+id/playPauseLayout"
+                motion:layout_constraintEnd_toStartOf="@id/playPauseLayout"
+                motion:layout_constraintTop_toTopOf="@+id/playPauseLayout"/>
+
+        <Constraint
+                android:id="@+id/playPauseLayout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="60dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent"/>
+
+        <Constraint
+                android:id="@+id/nextImageView"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="24dp"
+                android:src="@android:drawable/ic_media_next"
+                motion:layout_constraintBottom_toBottomOf="@+id/playPauseLayout"
+                motion:layout_constraintStart_toEndOf="@+id/playPauseLayout"
+                motion:layout_constraintTop_toTopOf="@+id/playPauseLayout"/>
+
+        <Constraint
+                android:id="@id/youtubeFragment"
+                android:layout_width="0dp"
+                android:layout_height="320dp"
+                motion:layout_constraintEnd_toEndOf="@id/playerBackground"
+                motion:layout_constraintStart_toStartOf="@id/playerBackground"
+                motion:layout_constraintTop_toTopOf="@id/playerBackground">
+
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/collapsed">
+
+        <Constraint
+                android:id="@+id/playerBackground"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                motion:layout_constraintBottom_toBottomOf="parent"
+                motion:layout_constraintEnd_toEndOf="parent"
+                motion:layout_constraintStart_toStartOf="parent">
+
+            <!--<CustomAttribute
+                    motion:attributeName="background"
+                    motion:customColorValue="@color/light_pink"/>-->
+
+        </Constraint>
+
+        <Constraint
+                android:id="@id/titleVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                motion:layout_constraintBottom_toTopOf="@+id/titleChannel"
+                motion:layout_constraintEnd_toStartOf="@+id/prevImageView"
+                motion:layout_constraintStart_toEndOf="@+id/youtubeFragment"
+                motion:layout_constraintTop_toTopOf="@+id/youtubeFragment">
+
+        </Constraint>
+
+        <Constraint
+                android:id="@id/titleChannel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginEnd="10dp"
+                motion:layout_constraintBottom_toBottomOf="@+id/youtubeFragment"
+                motion:layout_constraintEnd_toStartOf="@+id/prevImageView"
+                motion:layout_constraintHorizontal_bias="0"
+                motion:layout_constraintStart_toStartOf="@+id/titleVideo"
+                motion:layout_constraintTop_toBottomOf="@+id/titleVideo">
+
+        </Constraint>
+
+        <Constraint
+                android:id="@+id/prevImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                motion:layout_constraintBottom_toBottomOf="@+id/playPauseLayout"
+                motion:layout_constraintEnd_toStartOf="@id/playPauseLayout"
+                motion:layout_constraintTop_toTopOf="@+id/playPauseLayout"/>
+
+        <Constraint
+                android:id="@+id/playPauseLayout"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="10dp"
+                motion:layout_constraintBottom_toBottomOf="@+id/playerBackground"
+                motion:layout_constraintEnd_toStartOf="@+id/nextImageView"
+                motion:layout_constraintTop_toTopOf="@+id/playerBackground"/>
+
+        <Constraint
+                android:id="@+id/nextImageView"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="10dp"
+                motion:layout_constraintBottom_toBottomOf="@+id/playPauseLayout"
+                motion:layout_constraintEnd_toEndOf="@id/playerBackground"
+                motion:layout_constraintTop_toTopOf="@+id/playPauseLayout"/>
+
+        <Constraint
+                android:id="@id/youtubeFragment"
+                android:layout_width="200dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                motion:layout_constraintBottom_toBottomOf="@id/playerBackground"
+                motion:layout_constraintStart_toStartOf="@id/playerBackground"
+                motion:layout_constraintTop_toTopOf="@+id/playerBackground">
+
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>
